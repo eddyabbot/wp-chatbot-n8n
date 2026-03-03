@@ -1,0 +1,98 @@
+/* ==========================================================================
+   WP ChatBot N8n — Stili pagina admin
+   ========================================================================== */
+
+.wpcn-wrap h1 {
+	margin-bottom: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Tab navigation
+   -------------------------------------------------------------------------- */
+.wpcn-tabs {
+	margin-bottom: 0;
+	padding-top: 16px;
+}
+
+.wpcn-tab-panel {
+	display: none;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-top: none;
+	padding: 8px 0 16px;
+}
+
+.wpcn-tab-panel.is-active {
+	display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Sezioni dentro i tab (intestazioni di gruppo)
+   -------------------------------------------------------------------------- */
+.wpcn-section-header th {
+	padding-top: 24px;
+	padding-bottom: 4px;
+}
+
+.wpcn-section-header h3 {
+	margin: 0;
+	font-size: 13px;
+	font-weight: 600;
+	color: #1d2327;
+	border-bottom: 1px solid #e0e0e0;
+	padding-bottom: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   Toggle switch (checkbox on/off)
+   -------------------------------------------------------------------------- */
+.wpcn-toggle {
+	position: relative;
+	display: inline-block;
+	width: 48px;
+	height: 26px;
+	vertical-align: middle;
+}
+
+.wpcn-toggle input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+	position: absolute;
+}
+
+.wpcn-toggle-slider {
+	position: absolute;
+	cursor: pointer;
+	inset: 0;
+	background-color: #ccc;
+	border-radius: 26px;
+	transition: background-color 0.2s;
+}
+
+.wpcn-toggle-slider::before {
+	content: '';
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	left: 3px;
+	bottom: 3px;
+	background-color: #fff;
+	border-radius: 50%;
+	transition: transform 0.2s;
+}
+
+.wpcn-toggle input:checked + .wpcn-toggle-slider {
+	background-color: #2271b1;
+}
+
+.wpcn-toggle input:checked + .wpcn-toggle-slider::before {
+	transform: translateX(22px);
+}
+
+/* --------------------------------------------------------------------------
+   Color picker
+   -------------------------------------------------------------------------- */
+.wpcn-wrap .wp-picker-container .wp-color-result {
+	vertical-align: middle;
+}
