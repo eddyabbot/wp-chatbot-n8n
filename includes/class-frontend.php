@@ -30,23 +30,14 @@ class WPCN_Frontend {
 		}
 
 		// --- Config JS ---
-		$allow_uploads = ( '1' === $s['allow_file_uploads'] );
-
 		$config = array(
-			'webhookUrl'            => $s['webhook_url'],
-			'mode'                  => $s['mode'],
-			'chatInputKey'          => 'chatInput',
-			'chatSessionKey'        => 'sessionId',
-			'loadPreviousSession'   => ( '1' === $s['load_previous_session'] ),
-			'showWelcomeScreen'     => ( '1' === $s['show_welcome_screen'] ),
-			'enableStreaming'        => ( '1' === $s['enable_streaming'] ),
-			'allowFileUploads'      => $allow_uploads,
-			'allowedFilesMimeTypes' => ( $allow_uploads && ! empty( $s['allowed_mime_types'] ) )
-				? $s['allowed_mime_types']
-				: '',
-			'initialMessages'       => $messages,
-			'defaultLanguage'      => 'en',
-			'i18n'                 => array(
+			'webhookUrl'       => $s['webhook_url'],
+			'mode'             => 'window',
+			'chatInputKey'     => 'chatInput',
+			'chatSessionKey'   => 'sessionId',
+			'initialMessages'  => $messages,
+			'defaultLanguage'  => 'en',
+			'i18n'             => array(
 				'en' => array(
 					'title'            => $s['title'],
 					'subtitle'         => $s['subtitle'],
@@ -65,9 +56,7 @@ class WPCN_Frontend {
 		$secondary_shade   = self::darken( $secondary, 5 );
 
 		// Toggle background: se vuoto usa il primario
-		$toggle_bg = ! empty( $s['toggle_background'] ) ? $s['toggle_background'] : $primary;
-
-		$position    = $s['position'];
+		$toggle_bg   = ! empty( $s['toggle_background'] ) ? $s['toggle_background'] : $primary;
 		$config_json = wp_json_encode( $config );
 		?>
 
@@ -114,15 +103,6 @@ class WPCN_Frontend {
 			/* Border radius globale */
 			--chat--border-radius:             <?php echo esc_attr( $s['border_radius'] ); ?>;
 		}
-
-		<?php if ( 'bottom-left' === $position ) : ?>
-		/* Posizionamento in basso a sinistra */
-		#n8n-chat .chat-window-toggle,
-		#n8n-chat .chat-window {
-			right: auto !important;
-			left: 20px !important;
-		}
-		<?php endif; ?>
 		</style>
 
 		<!--

@@ -26,13 +26,6 @@ class WPCN_Settings {
 			// Generale
 			'enabled'                 => 'bool',
 			'webhook_url'             => 'url',
-			'mode'                    => 'mode',
-			'load_previous_session'   => 'bool',
-			'show_welcome_screen'     => 'bool',
-			'enable_streaming'        => 'bool',
-			'allow_file_uploads'      => 'bool',
-			'allowed_mime_types'      => 'text',
-			'position'                => 'position',
 			// Testi
 			'title'                   => 'text',
 			'subtitle'                => 'text',
@@ -94,14 +87,6 @@ class WPCN_Settings {
 					$value = trim( $raw );
 					break;
 
-				case 'mode':
-					$value = in_array( $raw, array( 'window', 'fullscreen' ), true ) ? $raw : 'window';
-					break;
-
-				case 'position':
-					$value = in_array( $raw, array( 'bottom-right', 'bottom-left' ), true ) ? $raw : 'bottom-right';
-					break;
-
 				case 'css_value':
 					// Accetta: 400px, 600px, 0.25rem, 1em, ecc.
 					$sanitized = sanitize_text_field( trim( $raw ) );
@@ -127,13 +112,6 @@ class WPCN_Settings {
 			// Generale
 			'enabled'                 => self::get( 'enabled', '0' ),
 			'webhook_url'             => self::get( 'webhook_url', '' ),
-			'mode'                    => self::get( 'mode', 'window' ),
-			'load_previous_session'   => self::get( 'load_previous_session', '1' ),
-			'show_welcome_screen'     => self::get( 'show_welcome_screen', '0' ),
-			'enable_streaming'        => self::get( 'enable_streaming', '0' ),
-			'allow_file_uploads'      => self::get( 'allow_file_uploads', '0' ),
-			'allowed_mime_types'      => self::get( 'allowed_mime_types', '' ),
-			'position'                => self::get( 'position', 'bottom-right' ),
 			// Testi
 			'title'                   => self::get( 'title', 'Hi there! 👋' ),
 			'subtitle'                => self::get( 'subtitle', "Start a chat. We're here to help you 24/7." ),
